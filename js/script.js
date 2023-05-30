@@ -13,13 +13,12 @@ const right = document.getElementById("right");
 //u : ufat
 
 let reemplazar = [
-    ["a","ai"],
-    ["e","enter"],
-    ["i","imes"],
-    ["o","ober"],
-    ["u","ufat"],
-]
-
+	["e", "enter"],
+	["o", "ober"],
+	["i", "imes"],
+	["a", "ai"],
+	["u", "ufat"]
+];
 function encriptar(newText){
     for (let i = 0; i < reemplazar.length; i++){
         if (newText.includes(reemplazar[i][0])){
@@ -29,14 +28,14 @@ function encriptar(newText){
     return newText
 }
 
-const desencriptar = (newText) => {
+function desencriptar(encriptedText) {
     for (let i = 0; i < reemplazar.length; i++) {
-        if (newText.includes(reemplazar[i][1])) {
-            newText = newText.replaceAll(reemplazar[i][1], reemplazar[i][0]);
-        };
-    };
-    return newText;
-}
+      if (encriptedText.includes(reemplazar[i][1])) {
+        encriptedText = encriptedText.replaceAll(reemplazar[i][1], reemplazar[i][0]);
+      }
+    }
+    return encriptedText;
+  }
 
 botonEncriptar.addEventListener("click", () => {
     const texto= ingresoTexto.value.toLowerCase()
