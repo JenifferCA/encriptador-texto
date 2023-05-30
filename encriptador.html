@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Texto</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styleencriptador.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styleencriptador.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700%display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img class="header-logo"src="imagenes/logo.png">
+        <img class="header-logo"src="public/imagenes/logo.png">
     </header>
     
     <main>
@@ -23,7 +23,7 @@
                 id="left">
                     <textarea id="ingresoTexto" class="ingreso-texto" placeholder="Ingrese el texto aquí" autofocus></textarea>
                     <div class="left-footer">
-                        <img src="imagenes/signo.png" alt="advertencia">
+                        <img src="public/imagenes/signo.png" alt="advertencia">
                         <span class="left-info">Sólo letras minúsculas y sin acentos.</span> 
     
                         <div class="left-botones">
@@ -36,7 +36,7 @@
                 </div>
                 
                 <div id="right" class="right ajustar">
-                    <img id="munheco" class="munheco" src="imagenes/Muñeco.png">
+                    <img id="munheco" class="munheco" src="public/imagenes/munheco.png">
                     <textarea id="mensajeFinal" class="mensaje-final ajustar">Ningún mensaje fue encontrado.</textarea>
                     <p id="rightInfo" class="right-info">Ingresa el texto que deseas encriptar o desencriptar.</p>
                     <button id="botonCopiar" class="boton-copiar oculto">Copiar</button>
@@ -51,6 +51,6 @@
     <p class="creador">Creado por JenifferCA.</p>
    </footer>
 
-   <script src="script.js"></script>
+   <script src="js/script.js"></script>
 </body>
 </html>
