@@ -1,11 +1,11 @@
-const ingresoTexto= document.getElementById(ingresoTexto); 
-const botonEncriptar= document.getElementById(botonEncriptar); 
-const botonDesencriptar= document.getElementById(botonDesencriptar); 
-const botonCopiar= document.getElementById(botonCopiar); 
-const mensajeFinal= document.getElementById(mensajeFinal); 
-const munheco= document.getElementById(munheco); 
-const rightInfo= document.getElementById(rightInfo); 
-const right= document.getElementById(right); 
+const ingresoTexto = document.getElementById("ingresoTexto"); 
+const botonEncriptar = document.getElementById("botonEncriptar"); 
+const botonDesencriptar = document.getElementById("botonDesencriptar"); 
+const botonCopiar = document.getElementById("botonCopiar"); 
+const mensajeFinal = document.getElementById("mensajeFinal"); 
+const munheco = document.getElementById("munheco"); 
+const rightInfo = document.getElementById("rightInfo"); 
+const right = document.getElementById("right"); 
 //a : ai
 //e : enter
 //i : imes
@@ -38,7 +38,20 @@ botonEncriptar.addEventListener("click", () => {
     rightInfo.style.display = "none";
     botonCopiar.style.display = "block";
     right.classList.add("ajustar");
-    mensajeFinal.classList("ajustar");
+    mensajeFinal.classList.add("ajustar");
+});
 
-})
+botonCopiar.addEventListener('click', () => {
+    const texto = mensajeFinal.innerHTML;
+    navigator.permissions.query({name: "clipboard-write"})
+    .then((result) => {
+        if (result.state === "granted" || result.state === "prompt") {
+            navigator.clipboard.writeText(texto).then(() => {
+                alert(`Copiado ${texto}`)
+              }, () => {
+                alert(`Error al copiar ${texto}`)
+              });
+        }
+      });
+});
 
