@@ -18,21 +18,29 @@ let reemplazar = [
     ["i","imes"],
     ["o","ober"],
     ["u","ufat"],
-
 ]
+
+function encriptar(newText){
+    for (let i = 0; i < reemplazar.length; i++){
+        if (newText.includes(reemplazar[i][0])){
+            newText = newText.replaceAll(reemplazar[i][0], reemplazar[i][1]);
+        };
+    }; 
+    return newText
+}
+
+const desencriptar = (newText) => {
+    for (let i = 0; i < reemplazar.length; i++) {
+        if (newText.includes(reemplazar[i][1])) {
+            newText = newText.replaceAll(reemplazar[i][1], reemplazar[i][0]);
+        };
+    };
+    return newText;
+}
 
 botonEncriptar.addEventListener("click", () => {
     const texto= ingresoTexto.value.toLowerCase()
-    function encriptar(newText){
-        for (let i = 0; i < reemplazar.length; i++){
-            if (newText.includes(reemplazar[i][0])){
-                newText = newText.replaceAll(reemplazar[i][0], reemplazar[i][1]);
-            };
-        }; 
-        return newText
-    }
     const textoEncriptado = encriptar(texto)
-
     mensajeFinal.innerHTML = textoEncriptado;
     munheco.style.display = "none";
     rightInfo.style.display = "none";
@@ -47,11 +55,22 @@ botonCopiar.addEventListener('click', () => {
     .then((result) => {
         if (result.state === "granted" || result.state === "prompt") {
             navigator.clipboard.writeText(texto).then(() => {
-                alert(`Copiado ${texto}`)
+                alert(`El texto ha sido copiado ${texto}`)
               }, () => {
                 alert(`Error al copiar ${texto}`)
               });
         }
       });
 });
+
+botonDesencriptar.addEventListener('click', () => {
+    const texto = ingresoTexto.value.toLowerCase()
+    const textoDesencriptado = desencriptar(texto)
+    mensajeFinal.innerHTML = textoDesencriptado;
+    munheco.style.display = "none";
+    rightInfo.style.display = "none";
+    botonCopiar.style.display = "block";
+    right.classList.add("ajustar");
+    mensajeFinal.classList.add("ajustar");
+})
 
