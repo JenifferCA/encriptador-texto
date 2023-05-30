@@ -46,6 +46,7 @@ botonEncriptar.addEventListener("click", () => {
     botonCopiar.style.display = "block";
     right.classList.add("ajustar");
     mensajeFinal.classList.add("ajustar");
+    limpiarTextoIngreso()
 });
 
 botonCopiar.addEventListener('click', () => {
@@ -71,5 +72,12 @@ botonDesencriptar.addEventListener('click', () => {
     botonCopiar.style.display = "block";
     right.classList.add("ajustar");
     mensajeFinal.classList.add("ajustar");
+    limpiarTextoIngreso()
 })
 
+const limpiarTextoIngreso = () => {
+    ingresoTexto.value = '';
+    ingresoTexto.style.height = "auto"
+	ingresoTexto.placeholder = "Ingrese el texto aquí";
+    ingresoTexto.focus();
+}
